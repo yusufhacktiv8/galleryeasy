@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default GalleryListItem correctly rendered 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem correctly rendered 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem render tag image when hovered 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem render tag image when hovered 2`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem still render tag image when mouse out 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem still render tag image when mouse out 2`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Favourited GalleryListItem still render tag image when mouse out 3`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Not favourited GalleryListItem remove transparent tag image when mouse out 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+</div>
+`;
+
+exports[`Not favourited GalleryListItem remove transparent tag image when mouse out 2`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    className="img-transparent-50"
+    url="/tagimage.png"
+  />
+</div>
+`;
+
+exports[`Not favourited GalleryListItem remove transparent tag image when mouse out 3`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+</div>
+`;
+
+exports[`Not favourited GalleryListItem render transparent tag image when hovered 1`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+</div>
+`;
+
+exports[`Not favourited GalleryListItem render transparent tag image when hovered 2`] = `
+<div
+  className="gallery-list-item"
+  onMouseEnter={[Function]}
+  onMouseOut={[Function]}
+  role="link"
+>
+  <img
+    url="/test.png"
+  />
+  <img
+    className="img-transparent-50"
+    url="/tagimage.png"
+  />
+</div>
+`;
