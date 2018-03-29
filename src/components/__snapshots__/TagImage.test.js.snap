@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Default TagImage correctly rendered 1`] = `
+<img
+  alt="Tag"
+  className=""
+  onClick={undefined}
+  src="/images/tagimage.png"
+/>
+`;
+
+exports[`Transparent TagImage correctly rendered 1`] = `
+<img
+  alt="Tag"
+  className="img-transparent-50"
+  onClick={undefined}
+  src="/images/tagimage.png"
+/>
+`;

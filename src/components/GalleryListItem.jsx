@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import TagImage from './TagImage';
 
 const Status = {
   DEFAULT: 'default',
   HOVERED: 'hovered',
 };
-const TAG_IMAGE_URL = '/tagimage.png';
 
 export default class GalleryListItem extends Component {
   constructor(props) {
@@ -34,9 +34,9 @@ export default class GalleryListItem extends Component {
     const { url, favourited } = this.props;
     let tagImage = null;
     if (!favourited && this.isHovered()) {
-      tagImage = <img url={TAG_IMAGE_URL} className="img-transparent-50" />;
+      tagImage = <TagImage transparent />;
     } else if (favourited) {
-      tagImage = <img url={TAG_IMAGE_URL} />;
+      tagImage = <TagImage />;
     }
 
     return (
