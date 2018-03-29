@@ -7,12 +7,9 @@ const Status = {
 };
 
 export default class GalleryListItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      status: Status.DEFAULT,
-    };
-  }
+  state = {
+    status: Status.DEFAULT,
+  };
 
   onMouseEnter = () => {
     this.setState({
