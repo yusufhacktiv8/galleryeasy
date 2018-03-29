@@ -43,7 +43,7 @@ export default class GalleryListItem extends Component {
         onMouseEnter={this.onMouseEnter}
         onMouseOut={this.onMouseOut}
       >
-        <img url={url} />
+        <img src={url} alt="Pic" />
         {tagImage}
       </div>
     );
