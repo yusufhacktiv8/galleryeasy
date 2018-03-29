@@ -12,16 +12,17 @@ exports[`GalleryList correctly rendered 1`] = `
     >
       <div
         className="gallery-list-item"
-        onMouseEnter={[Function]}
-        onMouseOut={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         role="link"
       >
         <img
-          url="/test1.png"
+          alt="Pic"
+          src="/test1.png"
         />
         <img
           alt="Tag"
-          className=""
+          className="tag-img"
           onClick={[Function]}
           src="/images/tagimage.png"
         />
@@ -32,12 +33,13 @@ exports[`GalleryList correctly rendered 1`] = `
     >
       <div
         className="gallery-list-item"
-        onMouseEnter={[Function]}
-        onMouseOut={[Function]}
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
         role="link"
       >
         <img
-          url="/test2.png"
+          alt="Pic"
+          src="/test2.png"
         />
       </div>
     </div>

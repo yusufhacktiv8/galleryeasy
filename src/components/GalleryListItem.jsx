@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TagImage from './TagImage';
+import './GalleryListItem.css';
 
 const Status = {
   DEFAULT: 'default',
@@ -11,13 +12,13 @@ export default class GalleryListItem extends Component {
     status: Status.DEFAULT,
   };
 
-  onMouseEnter = () => {
+  onMouseOver = () => {
     this.setState({
       status: Status.HOVERED,
     });
   }
 
-  onMouseOut = () => {
+  onMouseLeave = () => {
     this.setState({
       status: Status.DEFAULT,
     });
@@ -40,8 +41,8 @@ export default class GalleryListItem extends Component {
       <div
         role="link"
         className="gallery-list-item"
-        onMouseEnter={this.onMouseEnter}
-        onMouseOut={this.onMouseOut}
+        onMouseOver={this.onMouseOver}
+        onMouseLeave={this.onMouseLeave}
       >
         <img src={url} alt="Pic" />
         {tagImage}

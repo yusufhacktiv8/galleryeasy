@@ -3,7 +3,7 @@
 exports[`Default TagImage correctly rendered 1`] = `
 <img
   alt="Tag"
-  className=""
+  className="tag-img"
   onClick={undefined}
   src="/images/tagimage.png"
 />
@@ -12,7 +12,7 @@ exports[`Default TagImage correctly rendered 1`] = `
 exports[`Transparent TagImage correctly rendered 1`] = `
 <img
   alt="Tag"
-  className="img-transparent-50"
+  className="tag-img transparent-70"
   onClick={undefined}
   src="/images/tagimage.png"
 />

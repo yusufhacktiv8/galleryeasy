@@ -21,7 +21,7 @@ test('Not favourited GalleryListItem render transparent tag image when hovered',
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
-  tree.props.onMouseEnter();
+  tree.props.onMouseOver();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -34,12 +34,12 @@ test('Not favourited GalleryListItem remove transparent tag image when mouse out
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
-  tree.props.onMouseEnter();
+  tree.props.onMouseOver();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
   
-  tree.props.onMouseOut();
+  tree.props.onMouseLeave();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -60,7 +60,7 @@ test('Favourited GalleryListItem render tag image when hovered', () => {
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
-  tree.props.onMouseEnter();
+  tree.props.onMouseOver();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -73,12 +73,12 @@ test('Favourited GalleryListItem still render tag image when mouse out', () => {
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 
-  tree.props.onMouseEnter();
+  tree.props.onMouseOver();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
   
-  tree.props.onMouseOut();
+  tree.props.onMouseLeave();
   
   tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -88,7 +88,7 @@ test('Not favourited GalleryListItem trigger onFavouriteClick when TagImage clic
   const callback = sinon.spy();
   const favourited = false;
   const element = mount(<GalleryListItem url="/test.png" onFavouriteClicked={callback} />);
-  element.simulate('mouseEnter');
+  element.simulate('mouseOver');
   element.find(TagImage).simulate('click');
   
   expect(callback.calledWith(favourited)).toBe(true);
@@ -102,7 +102,7 @@ test('Favourited GalleryListItem trigger onFavouriteClick when TagImage clicked'
   element.find(TagImage).simulate('click');
   expect(callback.calledWith(favourited)).toBe(true);
   
-  element.simulate('mouseEnter');
+  element.simulate('mouseOver');
   
   element.find(TagImage).simulate('click');
   expect(callback.calledWith(favourited)).toBe(true);
