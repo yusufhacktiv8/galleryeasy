@@ -31,12 +31,12 @@ export default class GalleryListItem extends Component {
   }
 
   render() {
-    const { url, favourited } = this.props;
+    const { url, favourited = false, onFavouriteClicked } = this.props;
     let tagImage = null;
     if (!favourited && this.isHovered()) {
-      tagImage = <TagImage transparent />;
+      tagImage = <TagImage transparent onClick={() => onFavouriteClicked(favourited)} />;
     } else if (favourited) {
-      tagImage = <TagImage />;
+      tagImage = <TagImage onClick={() => onFavouriteClicked(favourited)} />;
     }
 
     return (

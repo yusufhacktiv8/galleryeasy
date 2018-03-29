@@ -26,7 +26,7 @@ exports[`Favourited GalleryListItem correctly rendered 1`] = `
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -45,7 +45,7 @@ exports[`Favourited GalleryListItem render tag image when hovered 1`] = `
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -64,7 +64,7 @@ exports[`Favourited GalleryListItem render tag image when hovered 2`] = `
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -83,7 +83,7 @@ exports[`Favourited GalleryListItem still render tag image when mouse out 1`] = 
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -102,7 +102,7 @@ exports[`Favourited GalleryListItem still render tag image when mouse out 2`] = 
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -121,7 +121,7 @@ exports[`Favourited GalleryListItem still render tag image when mouse out 3`] = 
   <img
     alt="Tag"
     className=""
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -153,7 +153,7 @@ exports[`Not favourited GalleryListItem remove transparent tag image when mouse 
   <img
     alt="Tag"
     className="img-transparent-50"
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
@@ -198,7 +198,7 @@ exports[`Not favourited GalleryListItem render transparent tag image when hovere
   <img
     alt="Tag"
     className="img-transparent-50"
-    onClick={undefined}
+    onClick={[Function]}
     src="/images/tagimage.png"
   />
 </div>
