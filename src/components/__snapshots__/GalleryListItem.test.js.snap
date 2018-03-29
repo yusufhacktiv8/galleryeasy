@@ -161,7 +161,7 @@ exports[`Not favourited GalleryListItem remove transparent tag image when mouse 
   />
   <img
     alt="Tag"
-    className="tag-img transparent-70"
+    className="tag-img tag-img-transparent"
     onClick={[Function]}
     src="/images/tagimage.png"
   />
@@ -209,7 +209,7 @@ exports[`Not favourited GalleryListItem render transparent tag image when hovere
   />
   <img
     alt="Tag"
-    className="tag-img transparent-70"
+    className="tag-img tag-img-transparent"
     onClick={[Function]}
     src="/images/tagimage.png"
   />

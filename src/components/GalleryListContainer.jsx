@@ -9,6 +9,7 @@ const IMAGES_API_URL = 'http://api.giphy.com/v1/gifs/search';
 export default class GalleryListContainer extends Component {
   state = {
     images: [],
+    favourites: [],
   }
 
   componentDidMount() {
@@ -28,7 +29,7 @@ export default class GalleryListContainer extends Component {
           {
             id: obj.id,
             url: obj.images.original.url,
-            favourited: false,
+            favourited: this.state.favourites.indexOf(obj.id) !== -1,
           }
         ));
         this.setState({
@@ -40,12 +41,37 @@ export default class GalleryListContainer extends Component {
       });
   }
 
+  toggleFavourite(id, favourited) {
+    if (!favourited) {
+      if (this.state.favourites.indexOf(id) === -1) {
+        this.setState({
+          favourites: [...this.state.favourites, id],
+        });
+      }
+    } else {
+      const tempFavourites = [...this.state.favourites];
+      const index = tempFavourites.indexOf(id);
+      if (index !== -1) {
+        tempFavourites.splice(index, 1);
+        this.setState({
+          favourites: tempFavourites,
+        });
+      }
+    }
+    const tempImages = this.state.images;
+    const image = tempImages.find(obj => obj.id === id);
+    image.favourited = !favourited;
+    this.setState({
+      images: tempImages,
+    });
+  }
+
   render() {
     const { images } = this.state;
     return (
       <GalleryList
         items={images}
-        onItemFavouriteClicked={(id, favourited) => { console.log(id, favourited); }}
+        onItemFavouriteClicked={(id, favourited) => { this.toggleFavourite(id, favourited); }}
       />
     );
   }
