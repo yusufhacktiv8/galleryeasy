@@ -13,5 +13,24 @@
 .footer-container {
   width: 100%;
   text-align: center;
-  margin-top: 10px;
+}
+
+.fetch-more-button-container {
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.fetch-more-button {
+  background-color: #D0D0D0;
+  border: none;
+  color: black;
+  padding: 10px 30px;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
