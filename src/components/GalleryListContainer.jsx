@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Header from './Header';
+import Footer from './Footer';
 import SearchText from './SearchText';
 import GalleryList from './GalleryList';
 import Loading from './Loading';
@@ -85,7 +86,7 @@ export default class GalleryListContainer extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Header selectedMenu="search" />
+          <Header selectedMenu="search" favouriteCount={this.state.favourites.length} />
         </div>
         <div className="text-search-container">
           <SearchText onSearch={this.onSearch} />
@@ -97,6 +98,9 @@ export default class GalleryListContainer extends Component {
               onItemFavouriteClicked={this.toggleFavourite}
             />)
           }
+        </div>
+        <div className="footer-container">
+          <Footer />
         </div>
       </div>
     );

@@ -1,0 +1,20 @@
+.footer {
+  background-color: #F0F0F0;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 40px;
+  font-size: 13px;
+  color: gray;
+  padding: 0 20px;
+  margin-top: 30px;
+}
+
+.app-name {
+  line-height: 40px;
+  float: left;
+}
+
+.company-name {
+  line-height: 40px;
+  float: right;
+}
