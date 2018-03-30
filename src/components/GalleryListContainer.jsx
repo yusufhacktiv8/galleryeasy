@@ -18,6 +18,7 @@ export default class GalleryListContainer extends Component {
     images: [],
     favourites: [],
     loading: false,
+    selectedMenu: 'search',
   }
 
   onSearch = (search) => {
@@ -35,7 +36,7 @@ export default class GalleryListContainer extends Component {
             {
               id: obj.id,
               url: obj.images[imageTypes.fixedHeightStill].url,
-              favourited: this.state.favourites.indexOf(obj.id) !== -1,
+              favourited: this.state.favourites.map(f => f.id).indexOf(obj.id) !== -1,
             }
           ));
           this.setState({
@@ -45,6 +46,12 @@ export default class GalleryListContainer extends Component {
     }
   }
 
+  onMenuClick = (menu) => {
+    this.setState({
+      selectedMenu: menu,
+    });
+  }
+
   fetchMore = () => {
     this.fetchImages(this.state.search, this.state.start + IMAGES_LIMIT)
       .then((response) => {
@@ -52,7 +59,7 @@ export default class GalleryListContainer extends Component {
           {
             id: obj.id,
             url: obj.images[imageTypes.fixedHeightStill].url,
-            favourited: this.state.favourites.indexOf(obj.id) !== -1,
+            favourited: this.state.favourites.map(f => f.id).indexOf(obj.id) !== -1,
           }
         ));
         this.setState({
@@ -91,14 +98,14 @@ export default class GalleryListContainer extends Component {
 
   toggleFavourite = (id, favourited) => {
     if (!favourited) {
-      if (this.state.favourites.indexOf(id) === -1) {
+      if (this.state.favourites.map(obj => obj.id).indexOf(id) === -1) {
         this.setState({
-          favourites: [...this.state.favourites, id],
+          favourites: [...this.state.favourites, { ...this.state.images.find(obj => obj.id === id), favourited: true }],
         });
       }
     } else {
       const tempFavourites = [...this.state.favourites];
-      const index = tempFavourites.indexOf(id);
+      const index = tempFavourites.map(obj => obj.id).indexOf(id);
       if (index !== -1) {
         tempFavourites.splice(index, 1);
         this.setState({
@@ -106,35 +113,51 @@ export default class GalleryListContainer extends Component {
         });
       }
     }
-    const tempImages = this.state.images;
+
+    // Modify images favourited props
+    const tempImages = [...this.state.images];
     const image = tempImages.find(obj => obj.id === id);
-    image.favourited = !favourited;
-    this.setState({
-      images: tempImages,
-    });
+    if (image) {
+      image.favourited = !favourited;
+      this.setState({
+        images: tempImages,
+      });
+    }
   }
 
   render() {
-    const { images } = this.state;
+    const { images, favourites } = this.state;
+    let dataSource = images;
+    if (this.state.selectedMenu === 'favourite') {
+      dataSource = favourites;
+    }
     return (
       <div className="container">
         <div className="row">
-          <Header selectedMenu="search" favouriteCount={this.state.favourites.length} />
+          <Header
+            selectedMenu={this.state.selectedMenu}
+            favouriteCount={this.state.favourites.length}
+            onMenuClick={this.onMenuClick}
+          />
         </div>
         <div className="text-search-container">
-          <SearchText onSearch={this.onSearch} />
+          {
+            this.state.selectedMenu === 'search' ? (
+              <SearchText onSearch={this.onSearch} />
+            ) : null
+          }
         </div>
         <div className="gallery-list-container">
           {
             this.state.loading ? <Loading description="Fetching images" /> : (<GalleryList
-              items={images}
+              items={dataSource}
               onItemFavouriteClicked={this.toggleFavourite}
             />)
           }
         </div>
         <div className="fetch-more-button-container">
           {
-            (this.state.images.length >= IMAGES_LIMIT) ? (
+            (this.state.images.length >= IMAGES_LIMIT) && (this.state.selectedMenu === 'search') ? (
               <input
                 className="fetch-more-button"
                 type="button"

@@ -15,10 +15,10 @@ export default ({ selectedMenu = menuCode.SEARCH, favouriteCount = 0, onMenuClic
       <li className="divider">
         |
       </li>
-      <li className={selectedMenu === menuCode.SEARCH ? 'selected' : ''} onClick={() => onMenuClick(menuCode.SEARCH)}>
+      <li style={{ cursor: 'pointer' }} className={selectedMenu === menuCode.SEARCH ? 'selected' : ''} onClick={() => onMenuClick(menuCode.SEARCH)}>
         Search
       </li>
-      <li className={selectedMenu === menuCode.FAVOURITE ? 'selected' : ''} onClick={() => onMenuClick(menuCode.FAVOURITE)}>
+      <li style={{ cursor: 'pointer' }} className={selectedMenu === menuCode.FAVOURITE ? 'selected' : ''} onClick={() => onMenuClick(menuCode.FAVOURITE)}>
         Favourites ({favouriteCount})
       </li>
     </ul>
