@@ -1,0 +1,8 @@
+.search-text {
+  border: 0;
+  border-bottom: 1px solid silver;
+  font-size: 26px;
+  color: gray;
+  width: 100%;
+  outline-width: 0;
+}

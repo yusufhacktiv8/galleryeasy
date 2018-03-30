@@ -31,7 +31,7 @@ export default class GalleryListContainer extends Component {
         const images = response.data.data.map(obj => (
           {
             id: obj.id,
-            url: obj.images[imageTypes.original].url,
+            url: obj.images[imageTypes.fixedHeightStill].url,
             favourited: this.state.favourites.indexOf(obj.id) !== -1,
           }
         ));
@@ -72,12 +72,20 @@ export default class GalleryListContainer extends Component {
   render() {
     const { images } = this.state;
     return (
-      <div>
-        <SearchText onSearch={this.onSearch} />
-        <GalleryList
-          items={images}
-          onItemFavouriteClicked={this.toggleFavourite}
-        />
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <SearchText onSearch={this.onSearch} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="twelve columns">
+            <GalleryList
+              items={images}
+              onItemFavouriteClicked={this.toggleFavourite}
+            />
+          </div>
+        </div>
       </div>
     );
   }

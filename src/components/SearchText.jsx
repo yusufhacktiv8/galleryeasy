@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchText.css';
 
 export default class SearchText extends Component {
   state = {
@@ -24,6 +25,8 @@ export default class SearchText extends Component {
         value={this.state.search}
         onChange={this.onSearchChange}
         onKeyPress={this.onKeyPress}
+        className="search-text"
+        placeholder="Start searching for images!"
       />
     );
   }

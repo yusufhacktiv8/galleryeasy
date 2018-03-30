@@ -2,46 +2,42 @@
 
 exports[`GalleryList correctly rendered 1`] = `
 <div
-  className="container"
+  className="grid"
 >
   <div
-    className="row"
+    className="three columns"
   >
     <div
-      className="col-3"
+      className="gallery-list-item"
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      role="link"
     >
-      <div
-        className="gallery-list-item"
-        onMouseLeave={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-      >
-        <img
-          alt="Pic"
-          src="/test1.png"
-        />
-        <img
-          alt="Tag"
-          className="tag-img"
-          onClick={[Function]}
-          src="/images/tagimage.png"
-        />
-      </div>
+      <img
+        alt="Pic"
+        src="/test1.png"
+      />
+      <img
+        alt="Tag"
+        className="tag-img"
+        onClick={[Function]}
+        src="/images/tagimage.png"
+      />
     </div>
+  </div>
+  <div
+    className="three columns"
+  >
     <div
-      className="col-3"
+      className="gallery-list-item"
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+      role="link"
     >
-      <div
-        className="gallery-list-item"
-        onMouseLeave={[Function]}
-        onMouseOver={[Function]}
-        role="link"
-      >
-        <img
-          alt="Pic"
-          src="/test2.png"
-        />
-      </div>
+      <img
+        alt="Pic"
+        src="/test2.png"
+      />
     </div>
   </div>
 </div>

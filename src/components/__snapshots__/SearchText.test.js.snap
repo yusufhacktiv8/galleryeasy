@@ -2,8 +2,10 @@
 
 exports[`SearchText correctly rendered 1`] = `
 <input
+  className="search-text"
   onChange={[Function]}
   onKeyPress={[Function]}
+  placeholder="Start searching for images!"
   type="text"
   value=""
 />

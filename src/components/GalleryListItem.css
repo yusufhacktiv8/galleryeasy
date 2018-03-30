@@ -1,11 +1,12 @@
 .gallery-list-item {
   height: 160px;
-  min-width: 222px;
+  width: 220px;
   overflow: hidden;
   position: relative;
   top: 0;
   left: 0;
   background-color: black;
+  margin: 8px;
 }
 
 .tag-img {
