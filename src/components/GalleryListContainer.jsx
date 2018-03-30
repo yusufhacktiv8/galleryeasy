@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import GalleryList from './GalleryList';
+import Header from './Header';
 import SearchText from './SearchText';
+import GalleryList from './GalleryList';
+import Loading from './Loading';
+import './GalleryListContainer.css';
 
 const IMAGES_LIMIT = 8;
 const IMAGES_API_URL = 'http://api.giphy.com/v1/gifs/search';
@@ -11,6 +14,7 @@ export default class GalleryListContainer extends Component {
   state = {
     images: [],
     favourites: [],
+    loading: false,
   }
 
   onSearch = (search) => {
@@ -20,6 +24,9 @@ export default class GalleryListContainer extends Component {
   }
 
   fetchImages(search = '') {
+    this.setState({
+      loading: true,
+    });
     axios.get(IMAGES_API_URL, {
       params: {
         q: search,
@@ -36,11 +43,15 @@ export default class GalleryListContainer extends Component {
           }
         ));
         this.setState({
+          loading: false,
           images,
         });
       })
       .catch((error) => {
         console.log(error);
+        this.setState({
+          loading: false,
+        });
       });
   }
 
@@ -74,17 +85,18 @@ export default class GalleryListContainer extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-12">
-            <SearchText onSearch={this.onSearch} />
-          </div>
+          <Header selectedMenu="search" />
         </div>
-        <div className="row">
-          <div className="twelve columns">
-            <GalleryList
+        <div className="text-search-container">
+          <SearchText onSearch={this.onSearch} />
+        </div>
+        <div className="gallery-list-container">
+          {
+            this.state.loading ? <Loading description="Fetching images" /> : (<GalleryList
               items={images}
               onItemFavouriteClicked={this.toggleFavourite}
-            />
-          </div>
+            />)
+          }
         </div>
       </div>
     );

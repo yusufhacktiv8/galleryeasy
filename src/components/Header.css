@@ -1,0 +1,40 @@
+.header {
+  height: 70px;
+  margin: 10px;
+  margin-top: 0;
+  border-bottom: 1px solid silver;
+  font-size: 22px;
+}
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  line-height: 70px;
+  color: silver;
+}
+
+.header li {
+  float: left;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.logo-text {
+
+}
+
+.logo-text span {
+  color: gray;
+}
+
+.header .selected {
+  color: #0C0C0C;
+}
+
+.divider {
+
+}
+
+.selected {
+
+}
