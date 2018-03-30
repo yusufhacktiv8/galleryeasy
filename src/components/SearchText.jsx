@@ -12,7 +12,9 @@ export default class SearchText extends Component {
   }
 
   onKeyPress = (e) => {
-    console.log(e.target.value);
+    if (e.key === 'Enter') {
+      this.props.onSearch(this.state.search);
+    }
   }
 
   render() {

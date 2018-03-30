@@ -2,25 +2,28 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import GalleryList from './GalleryList';
+import SearchText from './SearchText';
 
 const IMAGES_LIMIT = 8;
-const API_KEY = '1MzUguSzVS4rrWw2oS94hP5b7bslWAFq';
 const IMAGES_API_URL = 'http://api.giphy.com/v1/gifs/search';
+const imageTypes = { original: 'original', fixedHeight: 'fixed_height', fixedHeightStill: 'fixed_height_still' };
 export default class GalleryListContainer extends Component {
   state = {
     images: [],
     favourites: [],
   }
 
-  componentDidMount() {
-    this.fetchImages();
+  onSearch = (search) => {
+    if (search && search.length > 0) {
+      this.fetchImages(search);
+    }
   }
 
-  fetchImages() {
+  fetchImages(search = '') {
     axios.get(IMAGES_API_URL, {
       params: {
-        q: 'cat',
-        api_key: API_KEY,
+        q: search,
+        api_key: process.env.REACT_APP_API_KEY,
         limit: IMAGES_LIMIT,
       },
     })
@@ -28,7 +31,7 @@ export default class GalleryListContainer extends Component {
         const images = response.data.data.map(obj => (
           {
             id: obj.id,
-            url: obj.images.original.url,
+            url: obj.images[imageTypes.original].url,
             favourited: this.state.favourites.indexOf(obj.id) !== -1,
           }
         ));
@@ -41,7 +44,7 @@ export default class GalleryListContainer extends Component {
       });
   }
 
-  toggleFavourite(id, favourited) {
+  toggleFavourite = (id, favourited) => {
     if (!favourited) {
       if (this.state.favourites.indexOf(id) === -1) {
         this.setState({
@@ -69,10 +72,13 @@ export default class GalleryListContainer extends Component {
   render() {
     const { images } = this.state;
     return (
-      <GalleryList
-        items={images}
-        onItemFavouriteClicked={(id, favourited) => { this.toggleFavourite(id, favourited); }}
-      />
+      <div>
+        <SearchText onSearch={this.onSearch} />
+        <GalleryList
+          items={images}
+          onItemFavouriteClicked={this.toggleFavourite}
+        />
+      </div>
     );
   }
 }
